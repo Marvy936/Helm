@@ -95,6 +95,8 @@ helm package {name} --dependency-update -> create package with solved dependenci
 
 ---- HELM SUBCHARTS
 
+helm create umbrella-chart
+
 I can create anothers charts in chart directory, that will be subcharts and will be realeased with main chart.
 
 If I want to change values on those subcharts in values.yaml it works like that:
