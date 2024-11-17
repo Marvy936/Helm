@@ -1,11 +1,10 @@
-Built-in Objects
-
+### Built-in Objects
+```
 Objects are passed into a template from the template engine. And your code can pass objects around (we'll see examples when we look at the with and range statements). There are even a few ways to create new objects within your templates, like with the tuple function we'll see later.
-
 Objects can be simple, and have just one value. Or they can contain other objects or functions. For example, the Release object contains several objects (like Release.Name) and the Files object has a few functions.
-
 In the previous section, we use {{ .Release.Name }} to insert the name of a release into a template. Release is one of the top-level objects that you can access in your templates.
-
+```
+```
     Release: This object describes the release itself. It has several objects inside of it:
         Release.Name: The release name
         Release.Namespace: The namespace to be released into (if the manifest doesn’t override)
@@ -44,3 +43,4 @@ In the previous section, we use {{ .Release.Name }} to insert the name of a rele
     Template: Contains information about the current template that is being executed
         Template.Name: A namespaced file path to the current template (e.g. mychart/templates/mytemplate.yaml)
         Template.BasePath: The namespaced path to the templates directory of the current chart (e.g. mychart/templates).
+```
