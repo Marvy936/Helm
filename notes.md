@@ -1,13 +1,14 @@
+```
 helm version -> shows installed version.
-
----- HELM HUB
-
+```
+### ---- HELM HUB
+```
 helm search hub -> lists all charts on hub.
 helm search hub nginx -> lists all charts using nginx on hub.
 artifacthub.io -> hub website, you can search manualy for charts.
-
----- HELM REPO
-
+```
+### ---- HELM REPO
+```
 helm repo list -> shows available repos.
 helm repo add bitnami https://charts.bitnami.com/bitnami -> add bitnami to the available repos. (from artifacthub.io, button install, button ADD)
 helm repo update -> update local cache after adding repo.
@@ -17,9 +18,9 @@ helm search repo nginx -> looks for nginx in repos.
 --versions -> show all different versions.
 helm repo remove {repo_name} - remove repo. 
 helm show chart/readme/values/all/crds bitnami/nginx -> shows desired informations.
-
----- HELM RELEASE
-
+```
+### ---- HELM RELEASE
+```
 helm pull bitnami/nginx -> pulls package.
 helm install {name_of_release} bitnami/nginx -> release package with desired name.
 --version 13.2.0 -> install specific version
@@ -30,25 +31,25 @@ kubectl get all -> check release.
 helm status {name_of_release} -> shows dns address.
 helm uninstall {name_of_release} -> uninstall deployment/release.
 helm get manifest {name_of_release} -? shows manifest of release.
-
----- HELM UPGRADE & ROLLBACK
-
+```
+### ---- HELM UPGRADE & ROLLBACK
+```
 helm upgrade {name_of_release} bitnami/nginx --version 13.1.3 -> upgrade release with new version.
 --set replicaCount=2 -> set replicas to 2 or other config.
 --values values.yaml -> read the config from file. 
 helm rollback {name_of_release} 1 -> rollback on revision 1.
 helm history {name_of_release} -> history of changes on release.
-
----- HELM CREATE & PACKAGE
-
+```
+### ---- HELM CREATE & PACKAGE
+```
 helm create {name} -> creates empty templates for helm package.
 helm package {name} -> create package tgz.
 --version 0.3.0 -> package as new version, rewrite Chart.yaml version too.
 helm template . -> shows manifest of creating package if you are in it's directory, I can check changes with that.
 -s templates/service.yaml -> shows only service manifest.
-
----- MUSTACHE EXAMPLE
-
+```
+### ---- MUSTACHE EXAMPLE
+```
 code/vim values.yaml
 
 part: 2
@@ -70,9 +71,9 @@ Edit service.yaml
 .port because under service is key port: with value 80 and we want that value.
 
 See built_in_objects for more.
-
----- HELM DEPENDENCIES
-
+```
+### ---- HELM DEPENDENCIES
+```
 In to file Chart.yaml we can add dependencies.
 
 apiVersion.: v2
@@ -92,9 +93,9 @@ dependencies:
 helm dependency list . -> will show all chart dependencies.
 helm dependency update . -> update dependencies on chart.
 helm package {name} --dependency-update -> create package with solved dependencies
-
----- HELM SUBCHARTS
-
+```
+### ---- HELM SUBCHARTS
+```
 helm create umbrella-chart
 
 I can create anothers charts in chart directory, that will be subcharts and will be realeased with main chart.
@@ -110,9 +111,9 @@ adminer: #adminer is name of the subchart of the directory.
 If we would like to change replicas in main chart with values.yaml it would looks like that:
 
 replicaCount: 2
-
----- HELM PLUGINS
-
+```
+### ---- HELM PLUGINS
+```
 helm plugin install https://github.com/databus23/helm-diff -> install helm diff plugin.
 
 helm diff upgrade -> can be used with upgrade and it shows the differences before upgrade.
