@@ -36,15 +36,15 @@ artifacthub.io                            # Hub website for manual chart search.
 ## Helm Repo
 
 ```bash
-helm repo list                            # Lists available repositories.
+helm repo list                                           # Lists available repositories.
 helm repo add bitnami https://charts.bitnami.com/bitnami # Adds the Bitnami repository (from artifacthub.io).
-helm repo update                          # Updates the local cache after adding repositories.
-helm search repo                          # Lists available packages in repositories.
---regexp "\vbitnami/nginx\v"            # Searches using regex.
-helm search repo nginx                    # Searches for nginx in repositories.
---versions                                # Lists all available versions.
-helm repo remove {repo_name}             # Removes a repository.
-helm show chart/readme/values/all/crds bitnami/nginx # Shows specific details of a chart.
+helm repo update                                         # Updates the local cache after adding repositories.
+helm search repo                                         # Lists available packages in repositories.
+--regexp "\vbitnami/nginx\v"                             # Searches using regex.
+helm search repo nginx                                   # Searches for nginx in repositories.
+--versions                                               # Lists all available versions.
+helm repo remove {repo_name}                             # Removes a repository.
+helm show chart/readme/values/all/crds bitnami/nginx     # Shows specific details of a chart.
 ```
 
 ---
@@ -52,16 +52,16 @@ helm show chart/readme/values/all/crds bitnami/nginx # Shows specific details of
 ## Helm Release
 
 ```bash
-helm pull bitnami/nginx                   # Pulls the package from the repository.
+helm pull bitnami/nginx                      # Pulls the package from the repository.
 helm install {name_of_release} bitnami/nginx # Installs the package as a release with a specified name.
---version 13.2.0                          # Installs a specific version of the chart.
---set replicaCount=2                      # Sets replicas to 2 (or another configuration).
---values values.yaml                      # Reads configuration from a file.
-helm list                                 # Lists all releases.
-kubectl get all                           # Checks the release in Kubernetes.
-helm status {name_of_release}            # Shows the DNS address of the release.
-helm uninstall {name_of_release}         # Uninstalls the release.
-helm get manifest {name_of_release}      # Displays the manifest of the release.
+--version 13.2.0                             # Installs a specific version of the chart.
+--set replicaCount=2                         # Sets replicas to 2 (or another configuration).
+--values values.yaml                         # Reads configuration from a file.
+helm list                                    # Lists all releases.
+kubectl get all                              # Checks the release in Kubernetes.
+helm status {name_of_release}                # Shows the DNS address of the release.
+helm uninstall {name_of_release}             # Uninstalls the release.
+helm get manifest {name_of_release}          # Displays the manifest of the release.
 ```
 
 ---
@@ -72,8 +72,8 @@ helm get manifest {name_of_release}      # Displays the manifest of the release.
 helm upgrade {name_of_release} bitnami/nginx --version 13.1.3 # Upgrades a release to a new version.
 --set replicaCount=2                                          # Sets replicas to 2 or other configurations.
 --values values.yaml                                          # Reads configuration from a file.
-helm rollback {name_of_release} 1                            # Rolls back to revision 1.
-helm history {name_of_release}                               # Displays the history of changes for a release.
+helm rollback {name_of_release} 1                             # Rolls back to revision 1.
+helm history {name_of_release}                                # Displays the history of changes for a release.
 ```
 
 ---
@@ -141,7 +141,7 @@ dependencies:
 ```bash
 helm dependency list .                        # Lists all chart dependencies.
 helm dependency update .                      # Updates dependencies for the chart.
-helm package {name} --dependency-update      # Packages the chart with resolved dependencies.
+helm package {name} --dependency-update       # Packages the chart with resolved dependencies.
 ```
 
 ---
@@ -152,7 +152,7 @@ helm package {name} --dependency-update      # Packages the chart with resolved 
 
 ```bash
 helm create umbrella-chart                    # Creates a main chart directory.
-# Add subcharts in the `charts` directory. They will be released with the main chart.
+                                              # Add subcharts in the `charts` directory. They will be released with the main chart.
 ```
 
 ### Configuring Values for Subcharts
