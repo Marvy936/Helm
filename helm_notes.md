@@ -101,12 +101,12 @@ service:
 
 ### Deployment File (`deployment.yaml`)
 ```yaml
--image: bletvaska/rambo:{{ .Values.part }}
+- image: bletvaska/rambo:{{ .Values.part }}
 ```
 
 ### Service File (`service.yaml`)
 ```yaml
--port: {{ .Values.service.port }}
+- port: {{ .Values.service.port }}
 ```
 
 ### Explanation
